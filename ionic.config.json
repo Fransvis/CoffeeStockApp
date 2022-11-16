@@ -1,0 +1,7 @@
+{
+  "name": "bashselect",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

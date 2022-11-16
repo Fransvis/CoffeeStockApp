@@ -1,0 +1,12 @@
+# compiled output
+/android
+/ios
+/www
+
+# dependencies
+/node_modules
+/.angular
+/.vscode/
+
+#package-lock.json
+./package-lock.json
