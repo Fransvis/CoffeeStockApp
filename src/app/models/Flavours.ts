@@ -7,12 +7,3 @@ export interface Flavours {
   PodsPerBox: number;
   PhotoName: string;
 }
-
-export interface FlavoursCreate {
-  name: string;
-  Barcode: string;
-  PricePerBox: number;
-  PricePerPod: number;
-  PodsPerBox: number;
-  PhotoName: string;
-}

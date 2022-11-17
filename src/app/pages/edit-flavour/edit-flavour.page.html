@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="navigate('home')">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title> EDIT FLAVOUR </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="barcode-outline" ></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<form #form="ngForm" (ngSubmit)="submitFlavour(form.value)" >
+
+  <ion-item>
+    <ion-input
+      name="Barcode"
+      type="number"
+      placeholder="barcode"
+      [(ngModel)]="Barcode"
+      required
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input
+      name="name"
+      type="text"
+      placeholder="name"
+      [(ngModel)]="name"
+      required
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input
+      name="PricePerBox"
+      type="number"
+      placeholder="250"
+      [(ngModel)]="PricePerBox"
+      required
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input
+      name="PricePerPod"
+      type="number"
+      placeholder="18"
+      [(ngModel)]="PricePerPod"
+      required
+    ></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input
+      name="PodsPerBox"
+      type="number"
+      placeholder="12"
+      [(ngModel)]="PodsPerBox"
+      required
+    ></ion-input>
+  </ion-item>
+
+    <span class="image">
+      <img src="{{image}}" />
+    </span>
+
+    <ion-button size="large" type="submit" expand="block">SUBMIT</ion-button>
+</form>
+</ion-content>
+

@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 export const createSchemaFlavours: string = `
 CREATE TABLE IF NOT EXISTS flavours (
-  ID INTEGER PRIMARY KEY NOT NULL,
+  ID INTEGER PRIMARY KEY AUTOINCREMENT,
   name TEXT NOT NULL,
   Barcode TEXT DEFAULT '',
   PricePerBox NUMBER NOT NULL,
@@ -13,6 +13,10 @@ CREATE TABLE IF NOT EXISTS flavours (
   PodsPerBox NUMBER NOT NULL,
   PhotoName TEXT DEFAULT ''
   );
+`;
+
+export const dropchemaFlavours: string = `
+DROP TABLE IF EXISTS flavours 
 `;
 
 
@@ -32,10 +36,18 @@ export class MigrationService {
   async migrate(): Promise<any> {
     await this.createTestTable();
     await this.createFlavoursTable();
+    // this.dropFlavoursTable()
   }
 
   async createFlavoursTable(): Promise<any> {
     console.log('creating flavours table')
+    await this.databaseService.executeQuery(async (db) => {
+      await db.execute(createSchemaFlavours);
+    });
+  }
+
+  async dropFlavoursTable(): Promise<any> {
+    console.log('dropping flavours table')
     await this.databaseService.executeQuery(async (db) => {
       await db.execute(createSchemaFlavours);
     });

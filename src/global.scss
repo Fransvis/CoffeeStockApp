@@ -9,65 +9,57 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 
-ion-item{
-    --background-color: red!important;
-    --background: transparent!important;
-    border: none!important;
-    --inner-border-width: 0px;
-}
+// ion-item{
+//     --background-color: red!important;
+//     --background: transparent!important;
+//     border: none!important;
+//     --inner-border-width: 0px;
+// }
 
-ion-list{
-    background-color: transparent!important;
-}
+// ion-list{
+//     background-color: transparent!important;
+// }
+
+.scanner-ui { display: none; }
+.scanner-hide { visibility: visible; }
+
+body.qrscanner { background-color: transparent; }
+body.qrscanner .scanner-ui { display: block; }
+body.qrscanner .scanner-hide { visibility: hidden; }
+
+
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
 
 body{
     --ion-font-family: 'Sora-Regular';
 }
 
-#swiper{
-   ion-card{
-    height: 70vh;
-    display: flex;
-    justify-content: end;
-    flex-direction: column;
-    #imgHolder{
-        height: 100%;
-        display: flex;
-        justify-content: end;
-        flex-direction: column;
-        background-color: #eeeeee;
+
+    ion-icon{
+        font-size: 40px;
+      }
+
+      ion-item{
+        width: 95%;
+        margin: 33px 0;
+    }
+    
+    .image{
+        display: block;
+        text-align: center;
+    
         img{
-            object-fit: fill;
+            width: 30%;
         }
     }
-    #productName{
-        font-size: 26px;
-        text-align: left;
-        font-family: 'Sora-ExtraBold';
-       }
-    #productPrice{
-        display: flex;
-       #is{
-        font-size: 32px;
-        text-align: right;
-        font-family: 'Sora-ExtraBold';
-       }
-       #was{
-        opacity: 0.5;
-        font-size: 22px;
-        text-align: right;
-        margin: 25px 0px 0px 0px;
-        font-family: 'Sora-Regular';
-        text-decoration: line-through;
-       }
-    }
-    #actions{
-        display: flex;
-        flex-direction: row;
-        justify-content: end;
-        #actionButton{
-            color: #eeeeee;
-        }
-    }
-   }
-}
+    
+    ion-button{
+        margin: 25px;
+      }

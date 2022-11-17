@@ -11,28 +11,58 @@
 </ion-header>
 
 <ion-content>
-  <ion-item>
-    <ion-input placeholder="Barcode"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-input placeholder="flavour name"></ion-input>
-  </ion-item>
-  <span class="flex">
+  <form #form="ngForm" (ngSubmit)="submitFlavour(form.value)">
     <ion-item>
-      <ion-input placeholder="price per box"></ion-input>
+      <ion-input
+        name="Barcode"
+        type="text"
+        placeholder="barcode"
+        ngModel
+        required
+      ></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input placeholder="price per pod"></ion-input>
+      <ion-input
+        name="name"
+        type="text"
+        placeholder="flavour name"
+        ngModel
+        required
+      ></ion-input>
     </ion-item>
-  </span>
-  <ion-item>
-    <ion-input placeholder="pods per box"></ion-input>
-  </ion-item>
+    <ion-item>
+      <ion-input
+        name="PricePerBox"
+        type="number"
+        placeholder="price_per_box"
+        ngModel
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        name="PricePerPod"
+        type="number"
+        placeholder="price_per_pod"
+        ngModel
+        required
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        name="PodsPerBox"
+        type="number"
+        placeholder="pods_per_box"
+        ngModel
+        required
+      ></ion-input>
+    </ion-item>
 
-  <span class="image">
-    <img src="{{image}}" />
-  </span>
+    <span class="image">
+      <img src="{{image}}" (click)="takePicture()" />
+    </span>
 
-  <ion-button size="large" type="submit" expand="block" (click)="addFlavour()">ADD FLAVOUR</ion-button>
-
+    <ion-button size="large" type="submit" expand="block">ADD FLAVOUR</ion-button
+    >
+  </form>
 </ion-content>

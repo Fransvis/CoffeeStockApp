@@ -1,0 +1,28 @@
+<ion-content>
+  <form #form="ngForm" (ngSubmit)="login(form)" class="flex-center">
+    <div class="login">
+      <img src="../../../assets/img/LogoIcon.svg" alt="" />
+      <h4>WELCOME TO COFFEESTOCK</h4>
+
+      <ion-item>
+        <ion-input
+          name="name"
+          type="name"
+          placeholder="admin"
+          ngModel
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          name="password"
+          type="password"
+          placeholder="Password"
+          ngModel
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-button size="large" type="submit" expand="block">Login</ion-button>
+    </div>
+  </form>
+</ion-content>

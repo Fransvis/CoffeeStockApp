@@ -5,13 +5,19 @@ ion-card{
   
     ion-card-title{
         font-size: 18px;
-        color: var(--primary);
+        color: var(--ion-color-primary);
+    }
+
+    ion-card-subtitle{
+        color: #aaa7a7;
+        font-weight: 400;
     }
   
     ion-icon{
         font-size: 30px;
         margin-right: 10px;
-        color: rgb(198, 198, 198);
+        color: #aaa7a7;
+        font-weight: 400;
     }
   
     .card-content-ios{
@@ -25,3 +31,9 @@ ion-card{
     right: 15px;
     top: 18%;
   }
+  
+
+  .toolbar{
+    background-color: var(--ion-color-primary);
+  }
+
