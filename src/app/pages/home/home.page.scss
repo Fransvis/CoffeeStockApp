@@ -1,0 +1,27 @@
+ion-card{
+    border: 1px solid rgb(203, 204, 205);
+    border-radius: 0;
+    height: 135px;
+  
+    ion-card-title{
+        font-size: 18px;
+        color: var(--primary);
+    }
+  
+    ion-icon{
+        font-size: 30px;
+        margin-right: 10px;
+        color: rgb(198, 198, 198);
+    }
+  
+    .card-content-ios{
+        padding: 5px 20px;
+    }
+  }
+  
+  img{
+    width: 80px;
+    position: absolute;
+    right: 15px;
+    top: 18%;
+  }

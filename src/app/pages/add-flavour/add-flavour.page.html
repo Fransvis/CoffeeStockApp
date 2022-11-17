@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start" (click)="navigate()">
+      <ion-icon name="arrow-back-circle-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title> MANAGE FLAVOURS </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="barcode-outline" (click)="Scan()"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-input placeholder="Barcode"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-input placeholder="flavour name"></ion-input>
+  </ion-item>
+  <span class="flex">
+    <ion-item>
+      <ion-input placeholder="price per box"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input placeholder="price per pod"></ion-input>
+    </ion-item>
+  </span>
+  <ion-item>
+    <ion-input placeholder="pods per box"></ion-input>
+  </ion-item>
+
+  <span class="image">
+    <img src="{{image}}" />
+  </span>
+
+  <ion-button size="large" type="submit" expand="block" (click)="addFlavour()">ADD FLAVOUR</ion-button>
+
+</ion-content>

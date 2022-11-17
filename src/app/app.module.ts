@@ -6,11 +6,11 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { DatabaseService } from './services/database/database.service';
 import { DetailService } from './services/database/detail.service';
 import { SQLiteService } from './services/database/sqlite.service';
-import { ProductRepository } from './repositories/product.repository';
+import { FlavourRepository } from './repositories/flavour.repository';
 import { MigrationService } from './services/database/migrations.service';
 
 import { InitializeAppService } from './services/database/initialize.app.service';
-import { ProductDefaultQueryRepository } from './repositories/product.default.query.repository';
+import { FlavourDefaultQueryRepository } from './repositories/flavour.default.query.repository';
 
 export function initializeFactory(init: InitializeAppService) {
   return () => init.initializeApp();
@@ -29,9 +29,9 @@ export function initializeFactory(init: InitializeAppService) {
     DetailService,
     DatabaseService,
     MigrationService,
-    ProductRepository,
+    FlavourRepository,
     InitializeAppService,
-    ProductDefaultQueryRepository,
+    FlavourDefaultQueryRepository,
     {
       provide: APP_INITIALIZER,
       useFactory: initializeFactory,

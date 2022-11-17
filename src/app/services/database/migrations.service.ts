@@ -3,19 +3,18 @@ import { SQLiteService } from './sqlite.service';
 import { DatabaseService } from './database.service';
 import { environment } from 'src/environments/environment';
 
-export const createSchemaProducts: string = `
-CREATE TABLE IF NOT EXISTS products (
-  id INTEGER PRIMARY KEY NOT NULL,
+export const createSchemaFlavours: string = `
+CREATE TABLE IF NOT EXISTS flavours (
+  ID INTEGER PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
-  description TEXT DEFAULT '',
-  price NUMBER NOT NULL,
-  imageUrl TEXT DEFAULT '',
-  isAvailable BOOLEAN NOT NULL CHECK (isAvailable IN (0, 1)),
-  isPopular BOOLEAN NOT NULL CHECK (isAvailable IN (0, 1)),
-  category TEXT DEFAULT '',
-  createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+  Barcode TEXT DEFAULT '',
+  PricePerBox NUMBER NOT NULL,
+  PricePerPod NUMBER NOT NULL,
+  PodsPerBox NUMBER NOT NULL,
+  PhotoName TEXT DEFAULT ''
   );
 `;
+
 
 export const createSchemaTest: string = `
 CREATE TABLE IF NOT EXISTS test (
@@ -32,12 +31,13 @@ export class MigrationService {
 
   async migrate(): Promise<any> {
     await this.createTestTable();
-    await this.createProductsTable();
+    await this.createFlavoursTable();
   }
 
-  async createProductsTable(): Promise<any> {
+  async createFlavoursTable(): Promise<any> {
+    console.log('creating flavours table')
     await this.databaseService.executeQuery(async (db) => {
-      await db.execute(createSchemaProducts);
+      await db.execute(createSchemaFlavours);
     });
   }
 
