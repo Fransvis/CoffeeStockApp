@@ -2,6 +2,23 @@
 
 This project is run as a management system for managing coffee stock.
 
+Some things to note!
+
+I have struggled with some of the plugins as a lot of the packages are deprecated. I do not mind debugging these things, however this takes time and unfortunately we are currently very busy at work, so please forgive some of the following things that are not in working order:
+
+1. My first priority was to get the database up and running. However this proved to be a lot more challenging as I had anticipated. Due to this I did not get around to implementing the login service properly. In this case I simply created an auth gaurd that checks for a logged in status in the device storage.
+
+2. The barcode scanner does not return actual data, rather it returns the barcode unique identified number. If I am not mistaken this unique identifier needs to be sent through an api request to ge actual data. In this case the data for adding a flavour is not manually added.
+
+3. The image upload is not working, however I do save a blob as the photoname for each flavour. This blob is not persistent and will not be saved. As I have mentioned, I had struggles with the sqlite database service and as a result could not properly implement the NSDocumentsDirectory as this also seems to be quite a challenge.
+
+4. Lastly, I have tried to implement a new icon for the app, but this again proved difficult as most packages are deprecated. I installed the capacitor resources package with no luck as it did not create a resources file. As a result I was unable to update the app icon.
+
+
+Please not that all of these issues were tried and debugged with the best of my abilities. According to my IDE tracker I have around 35 hours on this project - excluding research time (I am not sure if this reflects badly, but I intend for it to show that I did put a lot of effort into this). I am happy to try and resolve these issues over the weekend, but I wanted to submit this project as I know I have run out of time for submission.
+
+Thank you for your consideration in hiring me. 
+
 1. Login
 
 Users are required to sign in via a webservice in order to manage data as seen below
@@ -49,22 +66,6 @@ Here is the home page with the new added flavour
 ![IMG_9457](https://user-images.githubusercontent.com/61865394/202637341-4f4af60b-fb2b-4e45-bcec-cfde0eb3d77e.PNG)
 ![IMG_9458](https://user-images.githubusercontent.com/61865394/202637372-49692563-744f-4ad5-ad74-221712d89a99.PNG)
 
-Some things to note!
-
-I have struggled with some of the plugins as a lot of the packages are deprecated. I do not mind debugging these things, however this takes time and unfortunately we are currently very busy at work, so please forgive some of the following things that are not in working order:
-
-1. My first priority was to get the database up and running. However this proved to be a lot more challenging as I had anticipated. Due to this I did not get around to implementing the login service properly. In this case I simply created an auth gaurd that checks for a logged in status in the device storage.
-
-2. The barcode scanner does not return actual data, rather it returns the barcode unique identified number. If I am not mistaken this unique identifier needs to be sent through an api request to ge actual data. In this case the data for adding a flavour is not manually added.
-
-3. The image upload is not working, however I do save a blob as the photoname for each flavour. This blob is not persistent and will not be saved. As I have mentioned, I had struggles with the sqlite database service and as a result could not properly implement the NSDocumentsDirectory as this also seems to be quite a challenge.
-
-4. Lastly, I have tried to implement a new icon for the app, but this again proved difficult as most packages are deprecated. I installed the capacitor resources package with no luck as it did not create a resources file. As a result I was unable to update the app icon.
-
-
-Please not that all of these issues were tried and debugged with the best of my abilities. According to my IDE tracker I have around 35 hours on this project - excluding research time (I am not sure if this reflects badly, but I intend for it to show that I did put a lot of effort into this). I am happy to try and resolve these issues over the weekend, but I wanted to submit this project as I know I have run out of time for submission.
-
-Thank you for your consideration in hiring me. 
 
 
 
