@@ -15,7 +15,7 @@ I have struggled with some of the plugins as a lot of the packages are deprecate
 4. Lastly, I have tried to implement a new icon for the app, but this again proved difficult as most packages are deprecated. I installed the capacitor resources package with no luck as it did not create a resources file. As a result I was unable to update the app icon.
 
 
-Please not that all of these issues were tried and debugged with the best of my abilities. According to my IDE tracker I have around 35 hours on this project - excluding research time (I am not sure if this reflects badly, but I intend for it to show that I did put a lot of effort into this). I am happy to try and resolve these issues over the weekend, but I wanted to submit this project as I know I have run out of time for submission.
+Please note that all of these issues were tried and debugged with the best of my abilities. According to my IDE tracker I have around 35 hours on this project - excluding research time (I am not sure if this reflects badly, but I intend for it to show that I did put a lot of effort into this). I am happy to try and resolve these issues over the weekend, but I wanted to submit this project as I know I have run out of time for submission.
 
 Thank you for your consideration in hiring me. 
 
