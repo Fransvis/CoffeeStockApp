@@ -1,5 +1,5 @@
 @import "~@ionic/angular/css/core.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 @import "~@ionic/angular/css/padding.css";
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
@@ -20,46 +20,60 @@
 //     background-color: transparent!important;
 // }
 
-.scanner-ui { display: none; }
-.scanner-hide { visibility: visible; }
-
-body.qrscanner { background-color: transparent; }
-body.qrscanner .scanner-ui { display: block; }
-body.qrscanner .scanner-hide { visibility: hidden; }
-
-
-
-.flex-center{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  
-
-body{
-    --ion-font-family: 'Sora-Regular';
+.scanner-ui {
+  display: none;
+}
+.scanner-hide {
+  visibility: visible;
 }
 
+body.qrscanner {
+  background-color: transparent;
+}
+body.qrscanner .scanner-ui {
+  display: block;
+}
+body.qrscanner .scanner-hide {
+  visibility: hidden;
+}
 
-    ion-icon{
-        font-size: 40px;
-      }
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
 
-      ion-item{
-        width: 95%;
-        margin: 33px 0;
-    }
-    
-    .image{
-        display: block;
-        text-align: center;
-    
-        img{
-            width: 30%;
-        }
-    }
-    
-    ion-button{
-        margin: 25px;
-      }
+body {
+  --ion-font-family: "Sora-Regular";
+}
+
+ion-icon {
+  font-size: 40px;
+}
+
+ion-item {
+  width: 95%;
+  margin: 33px 0;
+}
+
+.image {
+  display: block;
+  text-align: center;
+
+  img {
+    width: 30%;
+  }
+}
+
+ion-button {
+  margin: 25px;
+}
+
+.toolbar {
+  background-color: var(--ion-color-primary);
+}
+
+ion-toolbar{
+  --background: ;
+}

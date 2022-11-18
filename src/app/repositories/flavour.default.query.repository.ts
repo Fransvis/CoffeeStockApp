@@ -12,17 +12,10 @@ export class FlavourDefaultQueryRepository {
   }
 
   async getFlavours(): Promise<Flavours[]> {
-    //create a connection and open
     const db = await this.sqliteService.createConnection(environment.databaseName, false, "no-encryption", 1);
     await db.open();
-
-    //do your queries
     var flavours: DBSQLiteValues = await db.query("select * from flavours");
-
-    //close the connection
     await this.sqliteService.closeConnection(environment.databaseName);
-
-    //return the data
     return flavours.values as Flavours[];
   }
 

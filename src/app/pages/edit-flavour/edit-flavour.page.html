@@ -1,5 +1,5 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar class="toolbar">
     <ion-buttons slot="start" (click)="navigate('home')">
       <ion-icon name="arrow-back-circle-outline"></ion-icon>
     </ion-buttons>
@@ -60,7 +60,7 @@
   </ion-item>
 
     <span class="image">
-      <img src="{{image}}" />
+      <img [src]="PhotoName" />
     </span>
 
     <ion-button size="large" type="submit" expand="block">SUBMIT</ion-button>

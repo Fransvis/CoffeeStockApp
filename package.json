@@ -8,7 +8,8 @@
     "lint": "ng lint",
     "test": "ng test",
     "build": "ng build",
-    "start": "ng serve"
+    "start": "ng serve",
+    "resources": "capacitor-resources -p android,ios"
   },
   "private": true,
   "dependencies": {
@@ -27,7 +28,7 @@
     "@capacitor/camera": "^4.1.4",
     "@capacitor/core": "^4.2.0",
     "@capacitor/dialog": "^4.1.0",
-    "@capacitor/filesystem": "^4.0.0",
+    "@capacitor/filesystem": "^4.1.4",
     "@capacitor/haptics": "^4.0.0",
     "@capacitor/ios": "4.4.0",
     "@capacitor/keyboard": "^4.0.0",
@@ -36,6 +37,7 @@
     "@ionic-native/splash-screen": "^5.36.0",
     "@ionic/angular": "^6.1.9",
     "@ionic/pwa-elements": "^3.1.1",
+    "capacitor-resources": "^1.2.1",
     "jeep-sqlite": "^1.6.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.2.0",

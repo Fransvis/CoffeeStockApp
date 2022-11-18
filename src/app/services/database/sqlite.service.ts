@@ -437,7 +437,6 @@ export class SQLiteService {
 
     async copyFromAssets(overwrite?: boolean): Promise<void> { 
         const mOverwrite: boolean = overwrite != null ? overwrite : true;
-        console.log(`&&&& mOverwrite ${mOverwrite}`);
         if (this.sqlite != null) {
             try {
                 return Promise.resolve(await this.sqlite.copyFromAssets(mOverwrite));

@@ -3,8 +3,15 @@ import { Router } from '@angular/router';
 import { FlavourRepository } from 'src/app/repositories/flavour.repository';
 import { BarcodeScanner } from '@capacitor-community/barcode-scanner';
 import { Camera, CameraResultType } from '@capacitor/camera';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
+const IMAGE_DIR = 'stored-images';
+
+interface LocalFile {
+	name: string;
+	path: string;
+	data: string;
+}
 
 @Component({
   selector: 'app-add-flavour',
@@ -14,7 +21,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class AddFlavourPage implements OnInit {
 
   image: any = `../../../assets/img/imagePlaceholder.svg`
-
+  
 
   constructor(private router: Router, 
     private databaseQueries: FlavourRepository,
@@ -30,10 +37,8 @@ export class AddFlavourPage implements OnInit {
   }
 
   async submitFlavour(flavour){
-    flavour.PhotoName = this.image
-    await this.databaseQueries.createFlavour(flavour).then(res => {
-      console.log(res)
-    })
+    flavour.PhotoName = this.image["changingThisBreaksApplicationSecurity"]
+    await this.databaseQueries.createFlavour(flavour)
 
     this.router.navigate(['/home'])
   }
@@ -43,19 +48,11 @@ export class AddFlavourPage implements OnInit {
       quality: 90,
       allowEditing: true,
       resultType: CameraResultType.Uri
+
     })
 
-    this.image = image.webPath
+    this.image = this.sanitization.bypassSecurityTrustResourceUrl(image.webPath)
 
-    console.log(this.image)
-
-  
-    // image.webPath will contain a path that can be set as an image src.
-    // You can access the original file using image.path, which can be
-    // passed to the Filesystem API to read the raw data of the image,
-    // if desired (or pass resultType: CameraResultType.Base64 to getPhoto)
-  
-    // Can be set to the src of an image now
   };
 
 
@@ -63,7 +60,6 @@ export class AddFlavourPage implements OnInit {
   Scan = async () => {
     BarcodeScanner.hideBackground(); 
     document.body.classList.add("qrscanner");
-  
     const result = await BarcodeScanner.startScan();
   
     if (result.hasContent) {

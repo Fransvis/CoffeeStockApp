@@ -4,7 +4,6 @@ import { Flavours } from '../models/Flavours';
 import productsData from './flavour-data-example';
 import { DatabaseService } from '../services/database/database.service';
 import { DBSQLiteValues, SQLiteDBConnection } from '@capacitor-community/sqlite';
-import { Users } from '../models/users';
 
 @Injectable()
 export class FlavourRepository {
@@ -22,7 +21,6 @@ export class FlavourRepository {
     return this._databaseService.executeQuery<any>(async (db: SQLiteDBConnection) => {
       let sqlcmd: string = "insert into flavours (name, barcode, PricePerBox, PricePerPod, PodsPerBox, PhotoName) values (?, ?, ?, ?, ?, ?)";
       let values: Array<any> = [flavour.name, flavour.Barcode, flavour.PricePerBox, flavour.PricePerPod, flavour.PodsPerBox, flavour.PhotoName];
-      console.log(values)
       let ret: any = await db.run(sqlcmd, values);
       if (ret.changes.lastId > 0) {
         return ret.changes as Flavours;
@@ -32,7 +30,6 @@ export class FlavourRepository {
   }
 
   async updateFlavour(flavour) {
-    console.log(flavour)
     return this._databaseService.executeQuery<any>(async (db: SQLiteDBConnection) => {
       let sqlcmd: string = "update flavours set name = ?, Barcode = ?, PricePerBox = ?, PricePerPod = ?, PodsPerBox = ?, PhotoName = ? where id = ?";
       let values: Array<any> = [flavour.name, flavour.Barcode, flavour.PricePerBox, flavour.PricePerPod, flavour.PodsPerBox, flavour.PhotoName, flavour.ID];

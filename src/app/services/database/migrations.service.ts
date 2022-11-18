@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SQLiteService } from './sqlite.service';
 import { DatabaseService } from './database.service';
 import { environment } from 'src/environments/environment';
+import { FlavourRepository } from 'src/app/repositories/flavour.repository';
 
 export const createSchemaFlavours: string = `
 CREATE TABLE IF NOT EXISTS flavours (
@@ -30,45 +31,64 @@ CREATE TABLE IF NOT EXISTS test (
 @Injectable()
 export class MigrationService {
 
-  constructor(private sqliteService: SQLiteService, private databaseService: DatabaseService) {
+  constructor(private sqliteService: SQLiteService, 
+    private databaseService: DatabaseService,
+    private DatabaseQuery: FlavourRepository) {
   }
 
   async migrate(): Promise<any> {
     await this.createTestTable();
     await this.createFlavoursTable();
+    await this.checkDataEntries()
     // this.dropFlavoursTable()
   }
 
   async createFlavoursTable(): Promise<any> {
-    console.log('creating flavours table')
+    // console.log('creating flavours table')
     await this.databaseService.executeQuery(async (db) => {
       await db.execute(createSchemaFlavours);
     });
   }
 
+  checkDataEntries(){
+    this.DatabaseQuery.getFlavours().then(res => {
+      if (res.length == 0) {
+        this.seedDatabase()
+      }
+    })
+  }
+
+  seedDatabase(){
+    let flavour = {
+      name: "Ristretto",
+      Barcode: "1232132321312",
+      PricePerBox: 250,
+      PricePerPod: 18 ,
+      PodsPerBox: 12,
+      PhotoName: "../../../assets/img/risetto.png"
+    }
+
+    this.DatabaseQuery.createFlavour(flavour)
+  }
+
   async dropFlavoursTable(): Promise<any> {
-    console.log('dropping flavours table')
+    // console.log('dropping flavours table')
     await this.databaseService.executeQuery(async (db) => {
-      await db.execute(createSchemaFlavours);
+    await db.execute(dropchemaFlavours);
     });
   }
 
   async createTestTable(): Promise<void> {
-    console.log(`going to create a connection`)
+    // console.log(`going to create a connection`)
     const db = await this.sqliteService.createConnection(environment.databaseName, false, "no-encryption", 1);
-    console.log(`db ${JSON.stringify(db)}`)
     await db.open();
-    console.log(`after db.open`)
     let query = `
             CREATE TABLE IF NOT EXISTS test (
               id INTEGER PRIMARY KEY NOT NULL,
               name TEXT NOT NULL
             );
             `
-    console.log(`query ${query}`)
     const res: any = await db.execute(query);
-    console.log(`res: ${JSON.stringify(res)}`)
     await this.sqliteService.closeConnection(environment.databaseName);
-    console.log(`after closeConnection`)
   }
 }

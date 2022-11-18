@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FlavourRepository } from 'src/app/repositories/flavour.repository';
 import { MiscService } from 'src/app/services/misc.service';
@@ -13,7 +14,8 @@ export class EditFlavourPage implements OnInit {
   constructor(private router: Router, 
     private route: ActivatedRoute,
     private databaseQuery: FlavourRepository,
-    public misc: MiscService) { }
+    public misc: MiscService,
+    private sanitization: DomSanitizer,) { }
 
   ID
 
@@ -33,8 +35,24 @@ export class EditFlavourPage implements OnInit {
       this.PricePerBox = res.PricePerBox
       this.PricePerPod = res.PricePerPod
       this.PodsPerBox = res.PodsPerBox
-      this.PhotoName = res.PhotoName
+
+        let file = res.PhotoName;
+        let blob = new Blob([file], { type: file });
+        let url = window.URL.createObjectURL(blob);
+  
+        this.PhotoName = this.sanitization.bypassSecurityTrustUrl(url)["changingThisBreaksApplicationSecurity"];
+
+
     })
+  }
+
+  ngOnDestroy() {
+      this.name = ""
+      this.Barcode = ""
+      this.PricePerBox = 0
+      this.PricePerPod = 0
+      this.PodsPerBox = 0
+      this.PhotoName = ""
   }
 
   navigate(route: any) {

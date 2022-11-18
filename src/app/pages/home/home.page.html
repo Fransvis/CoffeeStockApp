@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar class="toolbar">
     <ion-buttons slot="start">
-      <ion-icon name="reload-outline"></ion-icon>
+      <ion-icon name="reload-outline" (click)="refresh()"></ion-icon>
     </ion-buttons>
     <ion-title> CoffeeFlavours </ion-title>
     <ion-buttons slot="end">
@@ -18,7 +18,7 @@
         <ion-card-subtitle>{{flavour.Barcode}}</ion-card-subtitle>
       </ion-card-header>
 
-      <img [src]="flavour.PhotoName"  alt="" />
+      <img [src]="flavour.image"  alt="" />
 
       <ion-card-content>
         <ion-icon name="create-outline" (click)="navigateEdit(flavour)"></ion-icon>

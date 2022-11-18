@@ -22,17 +22,27 @@ export class HomePage implements OnInit {
   }
 
 
-  ngOnInit() {
+  ngOnInit() {}
 
+  refresh(){
+    this.databaseQueries.getFlavours().then(res => {
+      this.misc.showAlert("Success", "Succesfully synced data")
+      this.flavours = res
+    })
   }
 
   getFlavours(){
     this.databaseQueries.getFlavours().then(res => {
       res.forEach(flavour => {
         let image = flavour.PhotoName
-        flavour.PhotoName = this.sanitization.sanitize(SecurityContext.RESOURCE_URL, this.sanitization.bypassSecurityTrustResourceUrl(image));
+
+        // let file = event.target.files[0];
+        // let blob = new Blob([file], { type: file.type });
+        // let url = window.URL.createObjectURL(blob);
+  
+        // flavour.PhotoName = this.sanitization.bypassSecurityTrustUrl(url);
+
       })
-      console.log(res)
       this.flavours = res
     })
   }
