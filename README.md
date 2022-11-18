@@ -6,7 +6,7 @@ Some things to note!
 
 I have struggled with some of the plugins as a lot of the packages are deprecated. I do not mind debugging these things, however this takes time and unfortunately we are currently very busy at work, so please forgive some of the following things that are not in working order:
 
-1. My first priority was to get the database up and running. However this proved to be a lot more challenging had I had anticipated. Due to this I did not get around to implementing the login service properly. In this case I simply created an auth gaurd that checks for a logged in status in the device storage.
+1. My first priority was to get the database up and running. However this proved to be a lot more challenging than I had anticipated. Due to this I did not get around to implementing the login service properly. In this case I simply created an auth gaurd that checks for a logged in status in the device storage.
 
 2. The barcode scanner does not return actual data, rather it returns the barcode unique identified number. If I am not mistaken this unique identifier needs to be sent through an api request to ge actual data. In this case the data for adding a flavour is not manually added.
 
